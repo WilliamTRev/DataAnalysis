@@ -18,3 +18,8 @@ https://support.microsoft.com/en-us/excel
 ------------------------------------------
 for extra, raw data sets:
 https://www.kaggle.com/
+
+---------------------------
+for odbc connection 
+
+https://www.youtube.com/watch?v=sZ2U_OzE3Qc&ab_channel=TeachExcel
