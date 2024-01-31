@@ -39,4 +39,9 @@ https://learnsql.com/blog/referential-constraints-foreign-keys-mysql/#:~:text=Th
 -- for reading from csv
 https://stackoverflow.com/questions/63264360/error-code-2068-file-requested-rejected-due-to-restrictions-on-access-with-root
 
+--------------------------- rank function good example
+https://www.mysqltutorial.org/mysql-window-functions/mysql-rank-function/
+
+--------------------------- window function examples
+https://www.mysqltutorial.org/mysql-window-functions
 
