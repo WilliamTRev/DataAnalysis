@@ -1,1 +1,7 @@
-BigQuery: Qwik Start - Console (https://www.cloudskillsboost.google/catalog_lab/685)
+1. BigQuery: Qwik Start - Console (https://www.cloudskillsboost.google/catalog_lab/685)
+
+or almost same lab:
+
+Using BigQuery in the Google Cloud Console (https://www.cloudskillsboost.google/catalog_lab/1451)
+
+2. BigQuery: Qwik Start - Command Line (https://www.cloudskillsboost.google/catalog_lab/684)
