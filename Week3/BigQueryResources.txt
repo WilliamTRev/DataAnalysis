@@ -34,3 +34,14 @@ Tables
 https://cloud.google.com/bigquery/docs/tables
 
 resource: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#creating_a_new_table_from_an_existing_table
+
+----------------------------------------------------------------------------------------------------------
+For schemas especially star and snowflake for your data warehouse:
+
+https://cloud.google.com/bigquery/docs/migration/schema-data-overview
+
+https://cloud.google.com/bigquery/docs/nested-repeated#example
+
+
+specify schema:
+https://cloud.google.com/bigquery/docs/schemas
