@@ -19,3 +19,6 @@ Using BigQuery in the Google Cloud Console (https://www.cloudskillsboost.google/
 
 7. Advanced. Analyze BigQuery data in Connected Sheets: Challenge Lab
 (https://www.cloudskillsboost.google/catalog_lab/6220)
+
+8. Advanced. Bracketology with Google Machine Learning
+(https://www.cloudskillsboost.google/catalog_lab/1645)
