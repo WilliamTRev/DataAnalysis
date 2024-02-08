@@ -49,3 +49,10 @@ https://cloud.google.com/bigquery/docs/nested-repeated#example
 
 specify schema:
 https://cloud.google.com/bigquery/docs/schemas
+
+
+------------------------------------------------------------------
+For keys and referential integrity:
+https://cloud.google.com/blog/products/data-analytics/join-optimizations-with-bigquery-primary-and-foreign-keys
+
+https://cloud.google.com/bigquery/docs/information-schema-table-constraints
