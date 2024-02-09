@@ -5,10 +5,8 @@ https://www.sqlshack.com/implementing-slowly-changing-dimensions-scds-in-data-wa
 star schema:
 https://www.geeksforgeeks.org/star-schema-in-data-warehouse-modeling/#
 
-
-
-
-
+overview:
+https://www.tutorialspoint.com/dwh/dwh_relational_olap.htm
 
 
 
