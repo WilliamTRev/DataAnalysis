@@ -1,0 +1,12 @@
+1. Looker Studio: Qwik Start
+https://www.cloudskillsboost.google/catalog_lab/768
+
+2. Explore and Create Reports with Looker Studio
+https://www.cloudskillsboost.google/catalog_lab/1450
+
+3. How to Build a BI Dashboard Using Google Looker Studio and BigQuery
+https://www.cloudskillsboost.google/catalog_lab/1738
+
+
+do 3 in your own account (not through cloud skill boost) except for the query scheduling, and create a dashboard that looks like the end of
+https://www.cloudskillsboost.google/catalog_lab/1738 
