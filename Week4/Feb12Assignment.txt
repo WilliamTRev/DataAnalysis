@@ -8,9 +8,11 @@ https://www.cloudskillsboost.google/catalog_lab/1450
 https://www.cloudskillsboost.google/catalog_lab/1738
 
 
-do 3 in your own account (not through cloud skill boost) except for the query scheduling, and create a dashboard that looks like the end of
+4. do 3 in your own account (not through cloud skill boost) except for the query scheduling, and create a dashboard that looks like the end of
 https://www.cloudskillsboost.google/catalog_lab/1738 
 
 
 Looker Studio can be found at:
 https://lookerstudio.google.com/
+
+5. https://codelabs.developers.google.com/codelabs/bigquery-data-studio#0
