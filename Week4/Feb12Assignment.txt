@@ -15,4 +15,11 @@ https://www.cloudskillsboost.google/catalog_lab/1738
 Looker Studio can be found at:
 https://lookerstudio.google.com/
 
-5. https://codelabs.developers.google.com/codelabs/bigquery-data-studio#0
+
+5.Use geospatial data below or another example and research/implement:
+
+https://codelabs.developers.google.com/codelabs/bigquery-data-studio#0
+
+https://support.google.com/looker-studio/answer/9713352?hl=en
+
+https://support.google.com/looker-studio/answer/10502383?sjid=1914950842434820128-NA
