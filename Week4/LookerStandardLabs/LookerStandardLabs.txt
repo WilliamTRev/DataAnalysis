@@ -1,0 +1,19 @@
+1. Looker Data Explorer - Qwik Start
+
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451376
+
+2. Filtering and Sorting Data in Looker
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451377
+
+3. Merging Results from Different Explores in Looker
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451378
+
+4. Creating a Looker Modeled Query and Working with Quick Start
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451379
+
+5. Looker Functions and Operators
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451380
+
+
+6. Exploring Data with Looker: Challenge Lab
+https://www.cloudskillsboost.google/course_sessions/7743318/labs/451381
