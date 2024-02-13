@@ -1,3 +1,7 @@
+best link (for all of below)
+https://www.cloudskillsboost.google/paths/28/course_templates/628
+
+
 1. Looker Data Explorer - Qwik Start
 
 https://www.cloudskillsboost.google/course_sessions/7743318/labs/451376
