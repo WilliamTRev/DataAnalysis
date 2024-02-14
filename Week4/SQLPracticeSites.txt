@@ -3,7 +3,7 @@
 https://www.hackerrank.com/domains/sql
 
 #practice mysql with leetcode
-https://leetcode.com/problems
+https://leetcode.com/problemset/database/
 
 #practice mysql another site
 https://sqlpad.io/playground/mysql/
