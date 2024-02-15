@@ -60,7 +60,7 @@ Learn more about merged results from the [Merging results from different Explore
 
 Common use cases
 - Demonstrating the power of Explores to highlight key types of analyses that can be created from a specific Explore page.
-- Offering a “soft-landing” for new explorers that are initially less intimidating and allow them to tweak an existing analysis vs. building one entirely from scratch.
+- Offering a "soft-landing" for new explorers that are initially less intimidating and allow them to tweak an existing analysis vs. building one entirely from scratch.
 - Saving time for seasoned users by modeling frequent queries and using them as Quick Starts to make your analyses faster and less repetitive, just like modeling commonly requested fields in LookML reaps benefits in terms of reusability .
 - Providing one-click access to common filter sets by providing explorers with a preconfigured set of filters to grab and go. No need to repetitively add and configure the ones you need.
 
@@ -76,10 +76,10 @@ The query parameter has the following subparameters:
 |label	| Optionally, adds a label for the query. The label is what is displayed in the Explore's field picker for the query.	| label: "Weekly Sales Totals"
 |description	| Optionally, adds a description about this query to inform your users. In the Explore, any queries with a description will have an information icon. The description text is displayed when a user hovers over the information icon.|	description: "Total value of all sales per day"
 |dimensions	| A comma-separated list of the dimensions from the Explore to be included in your query. The dimensions field uses this syntax: dimensions: [dimension1, dimension2, ...]|	dimensions: [orders.created_month, orders.country] |
-|measures |	A comma-separated list of the measures from the Explore to be included in your query. The measures field uses this syntax: | measures: [measure1, measure2, ...]	measures:   [orders.count] |
-| filters |	Optionally, adds filters to a query. Filters are added to the WHERE clause of the SQL that generates the query. The filters field uses this syntax: | filters: [field_name_1: "value1", field_name_2: "value2", ...]	filters: [orders.country: "United States", orders.state: "California"]|
+|measures |	A comma-separated list of the measures from the Explore to be included in your query. The measures field uses this syntax: measures: [measure1, measure2, ...]	|measures:   [orders.count] |
+| filters |	Optionally, adds filters to a query. Filters are added to the WHERE clause of the SQL that generates the query. The filters field uses this syntax: filters: [field_name_1: "value1", field_name_2: "value2", ...]	| filters: [orders.country: "United States", orders.state: "California"]|
 |limit	| Optionally, specifies the row limit of the query.	| limit: 10 |
-| sorts |	Optionally, specifies sort fields and sort direction (ascending or descending) for the query. The sorts field uses this syntax: sorts: [field1: asc|desc, field2: asc|desc, ...] |	sorts: [order_items.total_sales: asc] |
+| sorts |	Optionally, specifies sort fields and sort direction (ascending or descending) for the query. The sorts field uses this syntax: sorts: [field1: asc &#124; desc, field2: asc &#124; desc, ...] |	sorts: [order_items.total_sales: asc] |
 |pivots	| Optionally, pivots the results on the specified dimensions of the query. The pivots field uses this syntax: pivots: [dimension1, dimension2, ...] NOTE: The fields specified in the pivots parameter must also be specified in the dimensions parameter of the query.	| pivots: [created_quarter] |
 |timezone	| NOT SUPPORTED The timezone parameter is not supported for the query parameter that is a subparameter of explore. A query under explore uses the same time zone used by the explore.|	
 
