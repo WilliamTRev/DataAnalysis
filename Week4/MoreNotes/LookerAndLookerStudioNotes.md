@@ -4,7 +4,6 @@
 
 Looker may be managed for you in Google Cloud, hosted by you in another cloud service, or hosted on your own servers. In each case data always remains in-database and is not copied to the Looker instance.
 
-- Looker is the right choice for customers who need the following:
 - Governance for key metric definitions
 - Robust data access permissions
 - Sharing, scheduling, and alerting
@@ -16,7 +15,6 @@ Looker may be managed for you in Google Cloud, hosted by you in another cloud se
 
 Looker Studio is a Google Cloud service that is available at lookerstudio.google.com to anyone with a Google account.
 
-- Looker Studio is the right choice for customers who need the following:
 - Self-service analytics and visualizations
 - Interactive dashboards to more than 1,000 data sources
 - Report embedding for the web
