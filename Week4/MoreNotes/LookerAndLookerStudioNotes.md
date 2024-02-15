@@ -27,8 +27,11 @@ Looker Studio is a Google Cloud service that is available at lookerstudio.google
 - also [Functional References in Looker Studio](https://blog.coupler.io/looker-studio-formulas-and-functions/)
 
 - [video on functions in looker Studio](https://support.google.com/looker-studio/answer/6299685?sjid=10918353975172379725-NA#zippy=%2Cin-this-article)
+
+3. [Calculated Field With Parameter Example](https://support.google.com/looker-studio/answer/9002005#create-a-parameter&zippy=%2Cin-this-article%2Ccalculated-field-with-parameter-example)
+
 - and the best reference is here, please explore:
-3. [Looker Studio docs](https://developers.google.com/looker-studio)
+4. [Looker Studio docs](https://developers.google.com/looker-studio)
 
 # Looker Standard
 An **Explore** is a starting point for a query that is designed to explore a particular subject area. Select the Explore option from the left navigation panel to open the Explore menu.See [explores](https://cloud.google.com/looker/docs/creating-and-editing-explores). Explores contain views, which are groupings of dimensions and measures.
