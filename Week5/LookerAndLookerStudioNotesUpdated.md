@@ -42,6 +42,21 @@ Looker **Measures** are an aggregation of one or more dimensions (or unique attr
 
 **Dimensions** are unique attributes of the data that helps you describe the data. You can use both Dimensions and Measures in Looker to slice and dice your data to achieve data insights.
 
+## Dimensions
+In Looker, a dimension is a group-able field and can be used to filter query results. It can be:
+
+- An attribute, which has a direct association to a column in an underlying table
+- A fact or numerical value
+- A derived value, computed based on the values of other fields in a single row
+For example, dimensions for a Products view might include product name, product model, product color, product price, product created date, and product end-of-life date.
+
+Dimensions let you create buckets of data points to analyze your KPIs using different attributes. You can create different types of dimensions like time, numeric, yesno and string to slice and dice your data. For dimension types refer to [dimension types](https://docs.looker.com/reference/field-reference/dimension-type-reference).
+
+## Measures
+A measure is a field that uses a SQL aggregate function, such as COUNT, SUM, AVG, MIN, or MAX. Any field computed based on the values of other measure values is also a measure. Measures can be used to filter grouped values. For example, measures for a Sales view might include total items sold (a count), total sale price (a sum), and average sale price (an average).
+
+The behavior and expected values for a field depend on its declared type, such as string, number, or time. For measures, types include aggregate functions, such as sum and percent_of_previous. For details, refer to  [measure types](https://docs.looker.com/reference/field-reference/measure-type-reference).
+
 ## Merged Results
 Explores in Looker are designed by your Looker developers to combine the data from your database tables in the best way, using defined relationships between data fields and tables. Because of this, it is best to use a single Explore to examine your data.
 
@@ -203,6 +218,20 @@ Projects can also include dashboards defined in LookML to prevent business users
 
 There are other types of project files, such as documents and manifests. If you're interested, you can refer to the [Understanding other project files documentation](https://docs.looker.com/data-modeling/getting-started/other-project-files).
 
+## LookML Validator
+The [LookML Validator](https://docs.looker.com/data-modeling/getting-started/lookml-validation#validating_your_lookml) is used to perform a full model validation. Some errors, such as an invalid field reference due to a missing join, require a holistic look at the model and therefore are only surfaced when the LookML Validator is run. The LookML Validator checks all of the LookML code in a model, such as the syntax of object definitions (for example, dimensions and measures) and defined relationships (for example, joins). However, it does not check the SQL parameters of LookML objects (for example, SQL derived tables).
+
+## Running queries in the Explore
+After defining new LookML objects, you can run queries in the Explore. This helps troubleshoot your LookML code because it displays SQL errors provided by the underlying database (for example, inadequate permissions, incorrect SQL object references, or invalid aggregations).
+
+## SQL Runner
+[SQL Runner](https://docs.looker.com/data-modeling/learning-lookml/sql-runner-create-queries#debugging_using_sql_runner) provides a way to directly access your database and is also a useful tool for checking SQL errors in queries. This is where you can test the custom SQL that you want to include within SQL parameters of LookML objects. You can also see a list of database tables, run ad hoc queries, write queries for SQL derived tables, etc.
+
+## Content Validator
+The [Content Validator](https://docs.looker.com/data-modeling/getting-started/look-validation#using_the_content_validator_to_fix_errors) validates all references that your Looks and dashboards make to your LookML models, Explores, views, and fields, and displays an error for any references your content makes to an unknown LookML object. It also checks the Looks and dashboards that were created in the instance to ensure that their references to LookML objects are valid (for example, the name of a specific dimension or measure the Explore might have changed over time).
+
+[The Looker error catalog](https://docs.looker.com/reference/looker-error-catalog) provides a list of common error messages, their underlying causes, and where in Looker the message is displayed.
+
 #### More References
 [LookML quick reference](https://docs.looker.com/reference/lookml-quick-reference)
 [LookML terms and concepts](https://docs.looker.com/data-modeling/learning-lookml/lookml-terms-and-concepts)
@@ -217,6 +246,7 @@ There are other types of project files, such as documents and manifests. If you'
 - [Looker Functions and Operators](https://www.cloudskillsboost.google/catalog_lab/3635)
 - [Exploring Data with Looker: Challenge Lab](https://www.cloudskillsboost.google/catalog_lab/3679)
 - [Looker Developer - Qwik Start](https://www.cloudskillsboost.google/catalog_lab/3838)
+- [Troubleshooting Data Models in Looker](https://www.cloudskillsboost.google/catalog_lab/4745)
 - [Creating Measures and Dimensions Using LookML](https://www.cloudskillsboost.google/catalog_lab/3837)
 - [Creating Derived Tables Using LookML](https://www.cloudskillsboost.google/catalog_lab/3836)
 - [Filtering Explores with LookML](https://www.cloudskillsboost.google/catalog_lab/3839)
