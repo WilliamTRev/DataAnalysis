@@ -212,6 +212,35 @@ Projects can also include dashboards defined in LookML to prevent business users
 
 There are other types of project files, such as documents and manifests. If you're interested, you can refer to the [Understanding other project files documentation](https://docs.looker.com/data-modeling/getting-started/other-project-files).
 
+## Explore Filters with LookML
+To filter an Explore, you need to apply a default WHERE or HAVING clause to every SQL query that gets generated in that Explore. There are three principal ways to filter an Explore:
+
+- **sql_always_where** and **sql_always_having**, which behave similarly and have the same use case
+- **always_filter**
+- **conditionally_filter**
+
+
+### The sql_always_where and sql_always_having filters
+Both sql_always_where and sql_always_having allow you to add filters to an Explore that cannot be modified. This is useful when you have certain rows of data you always want to exclude from the Explore results.
+
+The sql_always_where filter is used to add a WHERE clause applied to dimensions in a SQL query, whereas sql_always_having is used to add a HAVING clause applied to measures in a SQL query. In addition to queries run explicitly by business users, the restriction will apply to dashboards, scheduled Looks, and embedded information that relies on that Explore.
+
+There will be no indication of the filter in the user interface, so business users are not informed that the data are being filtered, unless they have permission to look at the generated SQL. This is useful if you want to filter out certain values of the Explore, such as test or internal data.
+
+### The always_filter
+The always_filter enables you to require users to include a certain set of filters that you define. You also define a default value for the filters. Though users may change your default value for their query, they cannot remove the filter entirely. This is helpful when you want users to always filter by specific dimensions, such as always filtering by order status or user country, so that they do not request all of the possible data at one time.
+
+The always_filter has a sub-parameter to define the specific filters using the same Looker filter expressions that are used to filter dimensions and measures. The dimensions provided in the filters sub-parameter identify the dimensions that users must provide values for, such as a value for order status or user country.
+
+The specific values provided for in the filters sub-parameter are the default values which can be changed by the business user. For example, while the default order status is "Complete", business users can change this value to say orders with a different status like "Returned". For additional information, review the [Looker filter expressions document](https://docs.looker.com/reference/filter-expressions).
+
+### The conditionally_filter
+Similar to the always_filter, the conditionally_filter adds a filter to the Explore frontend that is accessible by business users. The conditionally_filter parameter enables you to define a set of default filters that users can override if they apply at least one filter from a second list that you define.
+
+Although users can indeed change the filter operator and values, they cannot remove the filter itself unless they put a filter on a specific alternative field. This is helpful when you want to limit the amount of data that an business user requests, but you also want to give them a list of alternative dimensions that they can use to filter the data.
+
+Conditionally_filter has a sub-parameter to define the specific filters as well as a sub-parameter to define the alternative dimensions that can be used to filter the data. For example, conditionally_filter can be used to create a filter that only returns data for the past 1 year, unless a filter is applied to a user ID or state dimension. This is typically used to prevent users from accidentally creating very large queries that may be too expensive to run on your database.
+
 ## LookML Validator
 The [LookML Validator](https://docs.looker.com/data-modeling/getting-started/lookml-validation#validating_your_lookml) is used to perform a full model validation. Some errors, such as an invalid field reference due to a missing join, require a holistic look at the model and therefore are only surfaced when the LookML Validator is run. The LookML Validator checks all of the LookML code in a model, such as the syntax of object definitions (for example, dimensions and measures) and defined relationships (for example, joins). However, it does not check the SQL parameters of LookML objects (for example, SQL derived tables).
 
