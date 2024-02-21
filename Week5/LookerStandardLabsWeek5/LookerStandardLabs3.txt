@@ -10,24 +10,21 @@ https://www.cloudskillsboost.google/course_templates/651
 3. Employing Best Practices for Improving the Usability of LookML Projects
 (https://www.cloudskillsboost.google/catalog_lab/4746)
 
-4. Caching and Datagroups with LookML
-(https://www.cloudskillsboost.google/catalog_lab/3840)
-
-5. Optimizing Performance of LookML queries
+4. Optimizing Performance of LookML queries
 (https://www.cloudskillsboost.google/catalog_lab/4170)
 
-6. Manage Data Models in Looker: Challenge Lab
+5. Manage Data Models in Looker: Challenge Lab
 (https://www.cloudskillsboost.google/catalog_lab/4747)
 
-7. Creating Tile-based Dashboard Alerts in Looker
+6. Creating Tile-based Dashboard Alerts in Looker
 (https://www.cloudskillsboost.google/catalog_lab/6619)
 
-8. Sending and Scheduling Dashboards in Looker
+7. Sending and Scheduling Dashboards in Looker
 (https://www.cloudskillsboost.google/catalog_lab/6621)
 
-9. Answering Complex Questions Using Native Derived Tables with LookML
+8. Answering Complex Questions Using Native Derived Tables with LookML
 (https://www.cloudskillsboost.google/catalog_lab/4093)
 
-10. Creating dynamic SQL derived tables with LookML and Liquid
+9. Creating dynamic SQL derived tables with LookML and Liquid
 (https://www.cloudskillsboost.google/catalog_lab/4090)
 
