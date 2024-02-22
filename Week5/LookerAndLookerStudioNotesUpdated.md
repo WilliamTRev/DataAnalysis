@@ -33,6 +33,8 @@ Looker Studio is a Google Cloud service that is available at lookerstudio.google
 - and the best reference is here, please explore:
 4. [Looker Studio docs](https://developers.google.com/looker-studio)
 
+5. [Looker Studio Chart Reference](https://support.google.com/looker-studio/topic/7059081?hl=en&ref_topic=9207420&sjid=8055637326223498048-NA)
+
 # Looker Standard
 An **Explore** is a starting point for a query that is designed to explore a particular subject area. Select the Explore option from the left navigation panel to open the Explore menu.See [explores](https://cloud.google.com/looker/docs/creating-and-editing-explores). Explores contain views, which are groupings of dimensions and measures.
 
@@ -244,6 +246,42 @@ Conditionally_filter has a sub-parameter to define the specific filters as well 
 ## LookML Validator
 The [LookML Validator](https://docs.looker.com/data-modeling/getting-started/lookml-validation#validating_your_lookml) is used to perform a full model validation. Some errors, such as an invalid field reference due to a missing join, require a holistic look at the model and therefore are only surfaced when the LookML Validator is run. The LookML Validator checks all of the LookML code in a model, such as the syntax of object definitions (for example, dimensions and measures) and defined relationships (for example, joins). However, it does not check the SQL parameters of LookML objects (for example, SQL derived tables).
 
+## Caching and Datagroups with LookML
+
+Looker is constantly generating SQL queries and sending them to the connected database. Whenever someone runs a query in Looker, the SQL results are cached and stored in an encrypted file on the Looker instance. Caching leverages the saved results from previously executed queries so that the same query is not run on the database repeatedly. This helps reduce database load. Caching also helps optimize Looker performance. In this lab, you learn how caching works in Looker and explore how to use LookML datagroups to define caching policies.
+
+### The caching process
+Looker acts like a front door attendant for a database. When a user runs a query, Looker determines whether the exact same query has been run before. If not, it allows the query to run on the database. When the results are returned, Looker caches them for future reference. If the same query has been run before, Looker checks the caching policy to determine whether the results are still valid. If yes, Looker returns the cached results to the business user. This happens in less than a second. If the same query has been run before but the results are no longer valid per the caching policy, Looker sends the query to the database. It then caches the new results for future reference.
+
+### Datagroups
+A datagroup is the Looker term for a named caching policy or rule. LookML developers use datagroups to manage caching on a Looker instance. Different caching policies require separate datagroup definitions. The number and types of datagroups you need to create depends on your data's extraction, transformation, and loading (ETL) processes and business requirements.
+
+For example, you may need to define datagroups at the model level, for individual Explores, or for persistent derived tables (PDTs), depending on how often your data is updated.
+
+- To apply a datagroup as the default for all Explores, use the persist_with parameter at the model level.
+- To apply a datagroup to a specific Explore, use the persist_with parameter in that Explore's definition.
+- To apply a datagroup to a specific set of Explores but not all Explores in a model, use the persist_with parameter in each Explore's definition and specify the same datagroup name.
+
+#### Objects that can use datagroups:
+##### **Persist_with**
+If you apply a datagroup at the model level, Looker, by default, will apply the same caching rules to all Explores within this model.
+
+However, you can apply a datagroup on an individual Explore, which overrides any setting at the model level. Because Explores are the foundation for all content, the same caching logic applies to Looks and dashboards in the Explore.
+
+#### **datagroup_trigger**
+For PDTs, you can apply a datagroup to specify how the PDT is rebuilt.
+
+#### **schedules**
+Schedules for Looks and dashboards can also be run on datagroups. You can instruct Looker to run a Look or dashboard automatically upon expiration of a caching policy, so new data is retrieved and "pre-cached" for any business users who need it.
+
+### Datagroup configuration
+Datagroups take two parameters: **max_cache_age** and **sql_trigger**.
+
+- max_cache_age specifies the number of hours to keep a cached result, such as 24 hours.
+- sql_trigger is used to write a SELECT statement that can tell Looker whether the results have changed. The sql_trigger should be written to return only one value. Looker will regularly send this statement to the connected database. If the result has changed, Looker refreshes the cache.
+
+Although only one parameter is required, it is best to use both to achieve the desired caching results. For example, if the sql_trigger check doesn't detect a change, that could mean something went wrong with the ETL process or the sql_trigger itself. If you include a max_cache_age parameter, the cache will be refreshed after a set duration regardless of the result of the sql_trigger check.
+
 ## Running queries in the Explore
 After defining new LookML objects, you can run queries in the Explore. This helps troubleshoot your LookML code because it displays SQL errors provided by the underlying database (for example, inadequate permissions, incorrect SQL object references, or invalid aggregations).
 
@@ -273,11 +311,48 @@ However, it is important to note that persist_for does not have any rebuild logi
 
 Because the primary benefit of PDTs is having data readily available to minimize query runtimes, it is recommended that you use persist_for in conjunction with sql_trigger_value to ensure that data updates are captured in the PDT, or simply use datagroup_trigger or sql_trigger_value.
 
+## LookML Extends
+Extends allow you to modularize code by creating copies of LookML objects that can then be integrated into other LookML objects and modified independently from the original LookML object. In Looker, you can extend views, Explores, and LookML-defined dashboards. By modularizing your code, extends allow you to treat pieces of code as modules or units that you can then build upon to expand your model.
+
+Why use extends?
+- writing DRY (Don't Repeat Yourself) code
+- easier/faster to make changes
+- consistency
+- easier management of different field sets
+
+Extends help you write D.R.Y. (Don't Repeat Yourself) code. By copying preexisting objects and sections of code, you can more easily add or modify logic. This is critical for scaling your model as your organization and use cases expand. It also maximizes consistency in your model, because you aren't manually rewriting code all the time. And it makes it easier to manage field access for different groups of users, which is also important for scalability.
+
+### LookML view extends
+As mentioned earlier, one object you can extend is a LookML view. This is commonly done to add more fields and/or update logic to the existing fields. Another use case is to change the database table specified in the sql_table_name parameter.
+
+#### Extend a view to add columns from another view
+Instead of copying/pasting the same code across multiple views, you can create one centralized view that contains definitions for commonly used dimensions and measures. Then, using extends, you can integrate those dimensions and measures into multiple views. You can simply use specific parameters for extends to identify the view that you want Looker to copy from.
+
+From a business perspective, this is very practical because you can have one centralized code base that is reused by multiple teams that can extend the core code and customize it for their own needs. The benefit of abstracting the location dimensions is that you can update them once, and the update is then propagated to any of the views that are extended from that location view.
+
+### LookML Explore extends
+Another object you can extend is Explores. You may have multiple tables that must always be joined together, especially in a more normalized database architecture. To avoid rewriting the same joins repeatedly, you can make a “base” Explore that already joins them together and then extend it to create additional Explores that need to join in more views. Or you may need the same set of joined views, but with the new Explore starting from a different base view.
+
+The four steps involved in Extend execution
+Steps include copy, merge, resolve conflicts, and finish
+
+"Behind the scenes" with an Explore:
+
+1. Looker makes a copy of the LookML object being extended.
+2. The copy, or extending object, is merged with the new or modified definitions.
+3. If any conflicts are detected (which happens if you modified definitions), the extending object controls.
+4. The extending object can be used in your LookML model just like any other object.
+
+#### Extend an Explore to add joins from another Explore
+Instead of copying/pasting the same joins across multiple Explores in a model file, you can create one base Explore that contains the most commonly used joins across your Explores. Then you can use extends to reuse that base Explore to define and customize other Explores defined in the model file.
+
+A common business use case for this is creating one core Explore that can be used to create other Explores for specific user groups/teams within your organization.
+
 #### More References
-[LookML quick reference](https://docs.looker.com/reference/lookml-quick-reference)
-[LookML terms and concepts](https://docs.looker.com/data-modeling/learning-lookml/lookml-terms-and-concepts)
-[Join the Looker Community](https://community.looker.com/)
-[Additional LookML basics](https://docs.looker.com/data-modeling/learning-lookml/advanced-lookml-concepts)
+- [LookML quick reference](https://docs.looker.com/reference/lookml-quick-reference)
+- [LookML terms and concepts](https://docs.looker.com/data-modeling/learning-lookml/lookml-terms-and-concepts)
+- [Join the Looker Community](https://community.looker.com/)
+- [Additional LookML basics](https://docs.looker.com/data-modeling/learning-lookml/advanced-lookml-concepts)
 
 ## Looker Standard Labs
 - [Looker Data Explorer - Qwik Start](https://www.cloudskillsboost.google/catalog_lab/3509)
@@ -292,6 +367,14 @@ Because the primary benefit of PDTs is having data readily available to minimize
 - [Creating Derived Tables Using LookML](https://www.cloudskillsboost.google/catalog_lab/3836)
 - [Filtering Explores with LookML](https://www.cloudskillsboost.google/catalog_lab/3839)
 - [Caching and Datagroups with LookML](https://www.cloudskillsboost.google/catalog_lab/3840)
+- [Modularizing LookML Code with Extends](https://www.cloudskillsboost.google/catalog_lab/4094)
+- [Employing Best Practices for Improving the Usability of LookML Projects](https://www.cloudskillsboost.google/catalog_lab/4746)
+- [Optimizing Performance of LookML queries](https://www.cloudskillsboost.google/catalog_lab/4170)
+- [Manage Data Models in Looker: Challenge Lab](https://www.cloudskillsboost.google/catalog_lab/4747)
+- [Creating Tile-based Dashboard Alerts in Looker](https://www.cloudskillsboost.google/catalog_lab/6619)
+- [Sending and Scheduling Dashboards in Looker](https://www.cloudskillsboost.google/catalog_lab/6621)
+- [Answering Complex Questions Using Native Derived Tables with LookML](https://www.cloudskillsboost.google/catalog_lab/4093)
+- [Creating dynamic SQL derived tables with LookML and Liquid](https://www.cloudskillsboost.google/catalog_lab/4090)
 
 ## Looker Studio Labs
 - [Explore and Create Reports with Looker Studio](https://www.cloudskillsboost.google/catalog_lab/1450)
