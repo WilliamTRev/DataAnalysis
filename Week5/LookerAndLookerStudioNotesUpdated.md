@@ -348,6 +348,54 @@ Instead of copying/pasting the same joins across multiple Explores in a model fi
 
 A common business use case for this is creating one core Explore that can be used to create other Explores for specific user groups/teams within your organization.
 
+## Best practices for writing LookML code
+
+### Use descriptive field names
+Using descriptive field names to define dimensions and measures helps both business users and developers find what they need, [#1 in the best practices](https://help.looker.com/hc/en-us/articles/360001766908-Best-Practice-Create-a-Positive-Experience-for-Looker-Users). Some examples of this include:
+
+- Name measures by their aggregate function or with common terms: ```total_[FIELD]``` for sum, ```count_[FIELD]```, ```avg_[FIELD]```, etc.
+- Name ratios descriptively: percent_orders_by_returning_customer is clearer than percent_returning.
+- Name **yesno** fields clearly: order_is_returned or is_order_returned, instead of returned.
+- Avoid using the words "date" or "time" in a dimension group. Looker already appends each timeframe to the end of the dimension name. For example, created_date would become created_date_date.
+
+### Leverage additional parameters
+Leveraging additional parameters can help organize and provide more context for the data exposed to business users. You should include [labels](https://docs.looker.com/reference/field-params/label-for-field) and [descriptions](https://docs.looker.com/reference/field-params/description) to help business users identify which fields and Explores to use for their workflows, [#1 and #4 in best practices](https://help.looker.com/hc/en-us/articles/360001766908-Best-Practice-Create-a-Positive-Experience-for-Looker-Users).
+
+You should also use the [**group_label**](https://help.looker.com/hc/en-us/articles/360001766908-Best-Practice-Create-a-Positive-Experience-for-Looker-Users) parameter to group similar fields and Explores into logical categories for easier navigation, [#2 in best practices](https://help.looker.com/hc/en-us/articles/360001766908-Best-Practice-Create-a-Positive-Experience-for-Looker-Users).
+
+Finally, you should use [**drill_fields**](https://docs.looker.com/reference/field-params/drill_fields) to curate the additional options that a business user sees when they click on the value of a table cell while exploring data.
+
+### Create and surface the fewest number of fields and Explores possible
+Creating and surfacing the fewest number of fields and Explores possible while still allowing business users to easily access the answers they need is a very beneficial best practice to implement, [#3 in best practices](https://help.looker.com/hc/en-us/articles/360001766908-Best-Practice-Create-a-Positive-Experience-for-Looker-Users). The optimal number of fields and Explores is different for every business, but having too many of each tends to confuse end users.
+
+You can use the [**fields**](https://docs.looker.com/reference/explore-params/fields-for-explore) parameter to limit fields surfaced to the business user in an individual Explore and use the [**hidden**](https://docs.looker.com/reference/field-params/hidden) parameter to hide a field or Explore across the entire model.
+
+### Write sustainable and modular LookML code
+Writing sustainable and modular LookML code that can easily be [updated, maintained, and reused](https://help.looker.com/hc/en-us/articles/360001784587-Best-Practice-Writing-Sustainable-Maintainable-LookML) is key to maintaining functional projects.
+
+Although the organization and quality of the underlying LookML code might not be immediately apparent, it can also affect the overall business user experience. Specifically, if you (as a LookML developer) can spend less time writing and maintaining your base code, you can more quickly modify or implement attributes and features that are requested by business users.
+
+Here are a few ideas for writing sustainable and modular LookML code:
+
+- Use [substitution operators](https://docs.looker.com/data-modeling/learning-lookml/sql-and-referring-to-lookml#substitution_operator_(%24)) throughout your code to minimize hard-coded references to your underlying database.
+- Identify appropriate cases for SQL-derived versus native-derived tables.
+    - Native derived tables promote code reusability by leveraging existing LookML objects in your model to define new structures or aggregations that do not yet exist in your underlying database.
+    - SQL derived tables are used for more custom or complex aggregations that are not easily accomplished with native derived tables.
+
+- Use [extends](https://docs.looker.com/data-modeling/learning-lookml/extends) or [refinements](https://docs.looker.com/data-modeling/learning-lookml/refinements) to expand on existing views and Explores.
+    - You can extend a view or Explore to make a copy of the original object and apply modifications. 
+    - You can also create a refinement to adapt an existing view or Explore without editing the LookML file that contains it.
+
+### Optimize the performance of Explore queries
+To optimize the performance of Explore queries for business users:
+
+- Avoid joining extraneous views in an Explore.
+- Declare a primary key in the view file, and define a join relationship using the relationship parameter to ensure that correct aggregates are produced.
+- Define many_to_one joins between views from the most granular level to the highest level of detail.
+- Persist derived tables for complex queries that take a long time to run or for queries that are used frequently by a large number of users or applications.
+
+For more information about these topics, see [Looker Dos and Don'ts](https://help.looker.com/hc/en-us/articles/360001784747-Best-Practice-LookML-Dos-and-Don-ts).
+
 #### More References
 - [LookML quick reference](https://docs.looker.com/reference/lookml-quick-reference)
 - [LookML terms and concepts](https://docs.looker.com/data-modeling/learning-lookml/lookml-terms-and-concepts)
