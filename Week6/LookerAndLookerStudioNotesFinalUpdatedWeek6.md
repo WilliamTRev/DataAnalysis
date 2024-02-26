@@ -458,6 +458,13 @@ Depending on your specific database dialect, you can explore additional query op
 - [Answering Complex Questions Using Native Derived Tables with LookML](https://www.cloudskillsboost.google/catalog_lab/4093)
 - [Creating dynamic SQL derived tables with LookML and Liquid](https://www.cloudskillsboost.google/catalog_lab/4090)
 
+## Looker Standard Courses (includes Labs)
+- [Course: Exploring Data with Looker](https://www.cloudskillsboost.google/course_templates/628)
+- [Course: Build LookML Objects in Looker](https://www.cloudskillsboost.google/course_templates/639)
+- [Course: Understanding LookML in Looker](https://www.cloudskillsboost.google/course_templates/774)
+- [Course: Manage Data Models in Looker](https://www.cloudskillsboost.google/course_templates/651)
+- [Course: Applying Advanced LookML Concepts in Looker](https://www.cloudskillsboost.google/course_templates/665)
+
 ## Looker Studio Labs
 - [Explore and Create Reports with Looker Studio](https://www.cloudskillsboost.google/catalog_lab/1450)
 - [How to Build a BI Dashboard Using Google Looker Studio and BigQuery](https://www.cloudskillsboost.google/catalog_lab/1738)
