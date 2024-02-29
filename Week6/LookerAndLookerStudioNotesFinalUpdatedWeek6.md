@@ -30,10 +30,12 @@ Looker Studio is a Google Cloud service that is available at lookerstudio.google
 
 3. [Calculated Field With Parameter Example](https://support.google.com/looker-studio/answer/9002005#create-a-parameter&zippy=%2Cin-this-article%2Ccalculated-field-with-parameter-example)
 
-- and the best reference is here, please explore:
-4. [Looker Studio docs](https://developers.google.com/looker-studio)
+4. [Geo dimension reference](https://support.google.com/looker-studio/answer/9843174?hl=en#zippy=%2Cin-this-article)
 
-5. [Looker Studio Chart Reference](https://support.google.com/looker-studio/topic/7059081?hl=en&ref_topic=9207420&sjid=8055637326223498048-NA)
+- and the best reference is here, please explore:
+5. [Looker Studio docs](https://developers.google.com/looker-studio)
+
+6. [Looker Studio Chart Reference](https://support.google.com/looker-studio/topic/7059081?hl=en&ref_topic=9207420&sjid=8055637326223498048-NA)
 
 # Looker Standard
 An **Explore** is a starting point for a query that is designed to explore a particular subject area. Select the Explore option from the left navigation panel to open the Explore menu.See [explores](https://cloud.google.com/looker/docs/creating-and-editing-explores). Explores contain views, which are groupings of dimensions and measures.
