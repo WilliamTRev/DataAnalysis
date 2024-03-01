@@ -2,6 +2,9 @@ Firstly, Congratulations on Completeing Training! To review before interviews ca
 
 Carefully complete and review each lab (also the associated courses which contain videos and quizzes), reviewing the linked documentation, and making changes to the labs to enhance your understanding of the topics. The below days are a suggested timeline but you can complete in the order that works best for you. Do not hesitate to complete a lab multiple times if necessary.
 
+link which includes videos, quizzes, etc and all looker labs below:
+(https://www.cloudskillsboost.google/paths/28) 
+
 day 1:
 
 https://www.cloudskillsboost.google/paths/28/course_templates/628
