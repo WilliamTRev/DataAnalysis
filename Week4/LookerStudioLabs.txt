@@ -1,0 +1,14 @@
+Explore and Create Reports with Looker Studio
+https://www.cloudskillsboost.google/catalog_lab/1450
+
+How to Build a BI Dashboard Using Google Looker Studio and BigQuery
+https://www.cloudskillsboost.google/catalog_lab/1738
+
+Looker Studio: Qwik Start
+https://www.cloudskillsboost.google/catalog_lab/768
+
+Get Started with Looker: Challenge Lab
+https://www.cloudskillsboost.google/catalog_lab/6266
+
+Get Started with Looker
+https://www.cloudskillsboost.google/course_templates/647

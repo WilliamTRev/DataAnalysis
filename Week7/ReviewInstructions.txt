@@ -1,0 +1,138 @@
+Firstly, Congratulations on Completeing Training! To review before interviews carefully do all of the following:
+
+Carefully complete and review each lab (also the associated courses which contain videos and quizzes), reviewing the linked documentation, and making changes to the labs to enhance your understanding of the topics. The below days are a suggested timeline but you can complete in the order that works best for you. Do not hesitate to complete a lab multiple times if necessary.
+
+link which includes videos, quizzes, etc and all looker labs below:
+(https://www.cloudskillsboost.google/paths/28) 
+
+day 1:
+
+https://www.cloudskillsboost.google/paths/28/course_templates/628
+
+
+1. Looker Data Explorer - Qwik Start
+
+https://www.cloudskillsboost.google/catalog_lab/3509
+
+2. Filtering and Sorting Data in Looker
+https://www.cloudskillsboost.google/catalog_lab/3557
+
+3. Merging Results from Different Explores in Looker
+https://www.cloudskillsboost.google/catalog_lab/3640
+
+4. Creating a Looker Modeled Query and Working with Quick Start
+https://www.cloudskillsboost.google/catalog_lab/4137
+
+5. Looker Functions and Operators
+https://www.cloudskillsboost.google/catalog_lab/3635
+
+
+6. Exploring Data with Looker: Challenge Lab
+https://www.cloudskillsboost.google/catalog_lab/3679
+
+
+day 2:
+
+https://www.cloudskillsboost.google/paths/28/course_templates/774
+
+
+Looker Developer - Qwik Start 
+(https://www.cloudskillsboost.google/catalog_lab/3838)
+
+Creating Measures and Dimensions Using LookML
+(https://www.cloudskillsboost.google/catalog_lab/3837)
+
+Creating Derived Tables Using LookML 
+(https://www.cloudskillsboost.google/catalog_lab/3836)
+
+Filtering Explores with LookML 
+(https://www.cloudskillsboost.google/catalog_lab/3839)
+
+Caching and Datagroups with LookML 
+(https://www.cloudskillsboost.google/catalog_lab/3840)
+
+
+
+day 3:
+
+https://www.cloudskillsboost.google/course_templates/651
+
+
+1. Troubleshooting Data Models in Looker:
+(https://www.cloudskillsboost.google/catalog_lab/4745)
+
+2. Modularizing LookML Code with Extends
+(https://www.cloudskillsboost.google/catalog_lab/4094)
+
+3. Employing Best Practices for Improving the Usability of LookML Projects
+(https://www.cloudskillsboost.google/catalog_lab/4746)
+
+4. Optimizing Performance of LookML queries
+(https://www.cloudskillsboost.google/catalog_lab/4170)
+
+5. Manage Data Models in Looker: Challenge Lab
+(https://www.cloudskillsboost.google/catalog_lab/4747)
+
+6. Creating Tile-based Dashboard Alerts in Looker
+(https://www.cloudskillsboost.google/catalog_lab/6619)
+
+7. Sending and Scheduling Dashboards in Looker
+(https://www.cloudskillsboost.google/catalog_lab/6621)
+
+8. Answering Complex Questions Using Native Derived Tables with LookML
+(https://www.cloudskillsboost.google/catalog_lab/4093)
+
+9. Creating dynamic SQL derived tables with LookML and Liquid
+(https://www.cloudskillsboost.google/catalog_lab/4090)
+
+
+day 4: 
+
+1. BigQuery: Qwik Start - Console (https://www.cloudskillsboost.google/catalog_lab/685)
+
+or almost same lab:
+
+Using BigQuery in the Google Cloud Console (https://www.cloudskillsboost.google/catalog_lab/1451)
+
+2. BigQuery: Qwik Start - Command Line (https://www.cloudskillsboost.google/catalog_lab/684)
+
+3. Weather Data in BigQuery (https://www.cloudskillsboost.google/catalog_lab/476)
+
+4. Exploring Your Ecommerce Dataset with SQL in Google BigQuery
+(https://www.cloudskillsboost.google/catalog_lab/1452)
+
+5. Troubleshooting Common SQL Errors with BigQuery 
+(https://www.cloudskillsboost.google/catalog_lab/1467)
+
+6. Exploring NCAA Data with BigQuery
+(https://www.cloudskillsboost.google/catalog_lab/815)
+
+7. Advanced. Getting Started with BigQuery Machine Learning
+(https://www.cloudskillsboost.google/catalog_lab/1153)
+
+8. Advanced. Analyze BigQuery data in Connected Sheets: Challenge Lab
+(https://www.cloudskillsboost.google/catalog_lab/6220)
+
+9. Advanced. Bracketology with Google Machine Learning (follow instructions on your own free account, do not pay for lab)
+(https://www.cloudskillsboost.google/catalog_lab/1645)
+
+10. Predict Visitor Purchases with a Classification Model in BigQuery ML
+https://www.cloudskillsboost.google/catalog_lab/1101
+
+
+
+All Days:
+
+Also carefully review the following documentation in addition to the above:
+https://cloud.google.com/looker/docs/admin-panel-users-roles
+https://cloud.google.com/looker/docs/access-control-and-permission-management
+https://cloud.google.com/looker/docs/admin-panel-database-connections
+
+Complete LookerReviewQuestions and DWH_BigQuery_Review for practice interview questions. Then practice interviewing with 
+others and yourself. Also work on the PracticeProjectWBigQueryAndLooker which is for practice, and you could add to your GitHub.
+
+
+Note: Comments on topics to double down on that many people missed
+- manifest file, what dependencies are included
+- access control and layers, what permission sets to use when and what access can a user have, how to give access to a group or group of users
+- when prefer aggregate awareness vs caching

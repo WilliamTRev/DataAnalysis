@@ -1,0 +1,30 @@
+https://www.cloudskillsboost.google/course_templates/651
+
+
+1. Troubleshooting Data Models in Looker:
+(https://www.cloudskillsboost.google/catalog_lab/4745)
+
+2. Modularizing LookML Code with Extends
+(https://www.cloudskillsboost.google/catalog_lab/4094)
+
+3. Employing Best Practices for Improving the Usability of LookML Projects
+(https://www.cloudskillsboost.google/catalog_lab/4746)
+
+4. Optimizing Performance of LookML queries
+(https://www.cloudskillsboost.google/catalog_lab/4170)
+
+5. Manage Data Models in Looker: Challenge Lab
+(https://www.cloudskillsboost.google/catalog_lab/4747)
+
+6. Creating Tile-based Dashboard Alerts in Looker
+(https://www.cloudskillsboost.google/catalog_lab/6619)
+
+7. Sending and Scheduling Dashboards in Looker
+(https://www.cloudskillsboost.google/catalog_lab/6621)
+
+8. Answering Complex Questions Using Native Derived Tables with LookML
+(https://www.cloudskillsboost.google/catalog_lab/4093)
+
+9. Creating dynamic SQL derived tables with LookML and Liquid
+(https://www.cloudskillsboost.google/catalog_lab/4090)
+

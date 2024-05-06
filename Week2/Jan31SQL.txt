@@ -1,0 +1,123 @@
+USE willdb;
+
+DROP TABLE IF EXISTS ProjectFeedback;
+DROP TABLE IF EXISTS Customers7;
+CREATE TABLE Customers7 (
+    Name VARCHAR(100),
+    Industry VARCHAR(100),
+    Project1_ID INT,
+    Project1_Feedback VARCHAR(200),
+    Project2_ID INT,
+    Project2_Feedback VARCHAR(200),
+    ContactPersonID INT,
+    ContactPersonAndRole VARCHAR(255),
+    PhoneNumber VARCHAR(12),
+    Address VARCHAR(255),
+    City VARCHAR(255),
+    Zip VARCHAR(5)
+  );
+ALTER TABLE Customers7
+ADD Customer_id INT PRIMARY KEY;
+
+ALTER TABLE Customers7 
+RENAME COLUMN ContactPersonAndRole TO Contactperson;
+
+ALTER TABLE Customers7
+DROP COLUMN Project1_ID;
+ALTER TABLE Customers7
+DROP COLUMN Project1_Feedback;
+ALTER TABLE Customers7
+DROP COLUMN Project2_ID;
+ALTER TABLE Customers7
+DROP COLUMN Project2_Feedback;
+
+-- DROP TABLE IF EXISTS ProjectFeedback;
+CREATE TABLE ProjectFeedback(
+id INT PRIMARY KEY,
+ProjectID INT,
+CustomerID INT,
+Feedback TEXT,
+CONSTRAINT FK_ProjectFeedbacks_Customers FOREIGN KEY (CustomerID) REFERENCES Customers7(Customer_id) ON DELETE CASCADE
+);
+
+---------------------------------------------------------------- 
+use willdb;
+DROP TABLE IF EXISTS InternationalStudent;
+DROP TABLE IF EXISTS Student;
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    Major VARCHAR(20)
+    );
+
+CREATE TABLE InternationalStudent(
+    country_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    student_id INT,
+    FOREIGN KEY(student_id) REFERENCES Student(student_id)
+    ON DELETE CASCADE
+);
+
+INSERT INTO Student VALUES(1,"Taylor", "Swift","English Literature");
+INSERT INTO Student VALUES(2,"Stephen", "Hawking","Physics");
+INSERT INTO InternationalStudent VALUES(1,"USA",1);
+INSERT INTO InternationalStudent VALUES(2,"UK",2);
+
+SELECT * FROM InternationalStudent;
+SELECT * FROM Student;
+DELETE FROM Student WHERE Major="English Literature";
+
+ --------------------------------------------------------------------
+use willdb;
+DROP TABLE IF EXISTS Works_with;
+DROP TABLE IF EXISTS Client;
+DROP TABLE IF EXISTS branch;
+DROP TABLE IF EXISTS Employee;
+
+ 
+CREATE TABLE Employee(
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    manager_id INT,
+    FOREIGN KEY(manager_id) REFERENCES employee(employee_id) ON DELETE SET NULL
+    );
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  name VARCHAR(40),
+  manager_id INT,
+  FOREIGN KEY(manager_id) REFERENCES employee(employee_id) ON DELETE SET NULL
+);
+CREATE TABLE Client(
+    client_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    branch_id INT,
+    FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+
+);
+
+CREATE TABLE Works_with (
+  employee_id INT NOT NULL,
+  client_id INT NOT NULL,
+  sales INT,
+  PRIMARY KEY(employee_id, client_id),
+  FOREIGN KEY(employee_id) REFERENCES Employee(employee_id) ON DELETE CASCADE,
+  FOREIGN KEY(client_id) REFERENCES Client(client_id) ON DELETE CASCADE
+);
+
+DESCRIBE Works_with;
+
+ ------------------------------------------------------------------------
+USE willdb;
+DROP TABLE IF EXISTS EMP;
+CREATE TABLE EMP(
+employeeid INT NOT NULL AUTO_INCREMENT, 
+emp_name VARCHAR(25) NOT NULL, 
+emp_age INT, 
+PRIMARY KEY (employeeid)
+);
+INSERT INTO EMP(emp_name,emp_age) VALUES("will",25),("jada",25);
+
+SELECT * FROM EMP;

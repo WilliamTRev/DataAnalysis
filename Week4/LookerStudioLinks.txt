@@ -1,0 +1,22 @@
+access Looker Studio:
+(https://lookerstudio.google.com/)
+
+
+Looker Studio docs:
+(https://developers.google.com/looker-studio)
+
+
+Functional References in Looker Studio:
+https://support.google.com/looker-studio/topic/7019880?hl=en&ref_topic=7570421&sjid=10918353975172379725-NA
+
+https://blog.coupler.io/looker-studio-formulas-and-functions/
+
+video on functions:
+https://support.google.com/looker-studio/answer/6299685?sjid=10918353975172379725-NA#zippy=%2Cin-this-article
+
+Calculated Field with Parameters Example:
+https://support.google.com/looker-studio/answer/9002005#create-a-parameter&zippy=%2Cin-this-article%2Ccalculated-field-with-parameter-example
+
+Custom Queries create new parameters (with BigQuery):
+https://support.google.com/looker-studio/answer/10588439?hl=en
+
